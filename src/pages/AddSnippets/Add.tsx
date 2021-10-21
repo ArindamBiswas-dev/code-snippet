@@ -1,4 +1,5 @@
 import Editor from '@monaco-editor/react'
+import { Input } from './Input'
 
 export const Add = () => {
   return (
@@ -12,30 +13,17 @@ export const Add = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
         <div className="border border-gray-400 rounded-md p-4 w-full">
           <form className="flex flex-col space-y-4">
-            <label htmlFor="title">Title</label>
-            <input
+            <Input label="Title" type="text" id="title" />
+            <Input
+              label="Short Description"
               type="text"
-              name="title"
-              id="title"
-              className="p-3 bg-gray-800 rounded-md text-lg"
-            />
-            <label htmlFor="shortDescription">Short Description</label>
-            <input
-              type="text"
-              name="shortDescription"
               id="shortDescription"
-              className="p-3 bg-gray-800 rounded-md text-lg"
             />
-            <label htmlFor="tags">Tags</label>
-            <input
-              type="text"
-              name="tags"
-              id="tags"
-              className="p-3 bg-gray-800 rounded-md text-lg"
-            />
-            <p className="text-gray-400 text-sm">
-              Tags should be seperated by commas
-            </p>
+            <Input label="Tags" type="text" id="tags">
+              <p className="text-gray-400 text-sm">
+                Tags should be seperated by commas
+              </p>
+            </Input>
             <label htmlFor="documentation">
               Documentation{' '}
               <span className="italic font-medium tracking-wider text-sm">
