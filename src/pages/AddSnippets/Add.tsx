@@ -1,7 +1,11 @@
 import Editor from '@monaco-editor/react'
+import { useState } from 'react'
 import { Input } from './Input'
+import { LangOption } from './LangOption'
 
 export const Add = () => {
+  const [selectedlang, setSelectedlang] = useState('javascript')
+
   return (
     <div>
       <h2
@@ -39,12 +43,18 @@ export const Add = () => {
           </form>
         </div>
         <div>
-          <label>Snippet Code</label>
+          <div className="flex justify-between">
+            <p>Snippet Code</p>
+            <LangOption
+              selectedlang={selectedlang}
+              setSelectedlang={setSelectedlang}
+            />
+          </div>
           <div className="py-2"></div>
           <Editor
             height="500px"
             defaultLanguage="javascript"
-            defaultValue="// write your code here"
+            language={selectedlang}
             theme="vs-dark"
             className="rounded-lg"
           />
