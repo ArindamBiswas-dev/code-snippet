@@ -1,5 +1,6 @@
-import Editor from '@monaco-editor/react'
 import { useState } from 'react'
+import { CodeEditor } from './CodeEditor'
+import { DocumentationEditor } from './DocumentationEditor'
 import { Input } from './Input'
 import { LangOption } from './LangOption'
 
@@ -34,12 +35,7 @@ export const Add = () => {
                 (MDX Enabled)
               </span>
             </label>
-            <textarea
-              name="documentation"
-              id="documentation"
-              rows={5}
-              className="bg-gray-800 p-3 rounded-md"
-            ></textarea>
+            <DocumentationEditor />
           </form>
         </div>
         <div>
@@ -51,13 +47,7 @@ export const Add = () => {
             />
           </div>
           <div className="py-2"></div>
-          <Editor
-            height="500px"
-            defaultLanguage="javascript"
-            language={selectedlang}
-            theme="vs-dark"
-            className="rounded-lg"
-          />
+          <CodeEditor lang={selectedlang} />
         </div>
       </div>
       <div className="flex mt-10">
