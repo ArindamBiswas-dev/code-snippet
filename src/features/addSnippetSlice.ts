@@ -42,11 +42,19 @@ const addSnippetSlice = createSlice({
           break
       }
     },
-    onSubmitHandler(state, action) {
+    onSubmitHandler(state) {
+      let tagsArray = state.tags.split(',')
+      tagsArray = tagsArray.map(tag => tag.trim().toLowerCase())
+
+      const newStateObj = {
+        ...state,
+        tags: tagsArray,
+      }
+      console.log(newStateObj)
       // add the snippet to db
     },
   },
 })
 
-export const { onChangeHandler } = addSnippetSlice.actions
+export const { onChangeHandler, onSubmitHandler } = addSnippetSlice.actions
 export default addSnippetSlice.reducer

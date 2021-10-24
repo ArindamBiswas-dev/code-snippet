@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useAppDispatch } from '../../app/hook'
+import { onSubmitHandler } from '../../features/addSnippetSlice'
 import { CodeEditor } from './CodeEditor'
 import { DocumentationEditor } from './DocumentationEditor'
 import { Input } from './Input'
@@ -6,6 +8,11 @@ import { LangOption } from './LangOption'
 
 export const Add = () => {
   const [selectedlang, setSelectedlang] = useState('javascript')
+  const dispatch = useAppDispatch()
+
+  const onAddSnippetSubmitHandler = () => {
+    dispatch(onSubmitHandler())
+  }
 
   return (
     <div>
@@ -53,7 +60,8 @@ export const Add = () => {
       <div className="flex mt-10">
         <button
           className="p-2 w-40 h-10 bg-green-500 
-        rounded-md ml-auto font-medium"
+          rounded-md ml-auto font-medium"
+          onClick={onAddSnippetSubmitHandler}
         >
           Add Snippet
         </button>
