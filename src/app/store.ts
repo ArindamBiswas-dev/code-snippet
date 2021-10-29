@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import addSnippetSlice from '../features/addSnippetSlice'
-import pinnedReducer from '../features/pinnedCourseSlice'
+import pinnedReducer from '../features/pinnedSnippetSlice'
 import searchReducer from '../features/searchSlice'
 
 export const store = configureStore({

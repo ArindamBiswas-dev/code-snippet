@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface stateType {
-  courses: {
+  snippets: {
     id: string
     title: string
     short_description: string
@@ -11,19 +11,19 @@ interface stateType {
 }
 
 const initialState: stateType = {
-  courses: [],
+  snippets: [],
 }
 
-const allCourseState = createSlice({
-  name: 'allCourse',
+const allSnippetState = createSlice({
+  name: 'allSnippet',
   initialState,
   reducers: {
-    getAllCourse(state, action: PayloadAction<string>) {
+    getAllSnippet(state, action: PayloadAction<string>) {
       // call the backend api by using userId = action.payload
-      // courses = fetchedData
+      // snippets = fetchedData
     },
   },
 })
 
-export const { getAllCourse } = allCourseState.actions
-export default allCourseState.reducer
+export const { getAllSnippet } = allSnippetState.actions
+export default allSnippetState.reducer

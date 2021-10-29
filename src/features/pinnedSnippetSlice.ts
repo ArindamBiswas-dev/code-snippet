@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface pinnedCourseState {
-  courses: {
+interface pinnedSnippetState {
+  snippets: {
     id: string
     title: string
     short_description: string
@@ -10,8 +10,8 @@ interface pinnedCourseState {
   }[]
 }
 
-const initialState: pinnedCourseState = {
-  courses: [
+const initialState: pinnedSnippetState = {
+  snippets: [
     {
       id: '5',
       title: '',
@@ -29,16 +29,16 @@ const initialState: pinnedCourseState = {
   ],
 }
 
-const pinnedCourseSlice = createSlice({
-  name: 'pinnedCourse',
+const pinnedSnippetSlice = createSlice({
+  name: 'pinnedSnippet',
   initialState,
   reducers: {
-    getPinnedCourse(state, action: PayloadAction<string>) {
+    getPinnedSnippet(state, action: PayloadAction<string>) {
       // call the backend api by using userId = action.payload
-      // courses = fetchedData
+      // snippets = fetchedData
     },
   },
 })
 
-export const { getPinnedCourse } = pinnedCourseSlice.actions
-export default pinnedCourseSlice.reducer
+export const { getPinnedSnippet } = pinnedSnippetSlice.actions
+export default pinnedSnippetSlice.reducer
