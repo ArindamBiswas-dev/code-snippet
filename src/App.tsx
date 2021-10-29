@@ -4,6 +4,7 @@ import { Layout } from './components/Layout'
 import { Add } from './pages/AddSnippets/Add'
 import { Home } from './pages/Home/Home'
 import { Snippet } from './pages/Snippets/Snippet'
+import { ViewSnippet } from './pages/ViewSnippet/ViewSnippet'
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/add">
               <Add />
+            </Route>
+            <Route path="/:id">
+              <ViewSnippet />
             </Route>
           </Switch>
         </Layout>

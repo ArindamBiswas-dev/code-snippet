@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .mdx * {
+    @apply my-1;
+  }
+
+  .mdx h1 {
+    @apply text-6xl my-9;
+  }
+  .mdx h2 {
+    @apply text-4xl my-9;
+  }
+  .mdx h3 {
+    @apply text-2xl my-9;
+  }
+  .mdx h4 {
+    @apply text-xl my-9;
+  }
+  .mdx h4 {
+    @apply text-lg my-9;
+  }
+  .mdx h5 {
+    @apply text-base my-9;
+  }
+  .mdx h6 {
+    @apply text-sm my-9;
+  }
+  .mdx p {
+    @apply text-xl;
+  }
+  .mdx a {
+    @apply text-xl text-blue-500 underline italic;
+  }
+  .mdx pre code {
+    @apply bg-transparent;
+  }
+  .mdx code {
+    @apply bg-gray-100 text-black px-2 rounded-md;
+  }
+  .mdx hr {
+    @apply my-10;
+  }
+}
