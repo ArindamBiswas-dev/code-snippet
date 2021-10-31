@@ -1,7 +1,10 @@
 import Editor from '@monaco-editor/react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { IoCopyOutline } from 'react-icons/io5'
+import { GoThumbsup } from 'react-icons/go'
 import { useAppSelector } from '../../app/hook'
+import { useEffect, useState } from 'react'
 
 export const ViewSnippet = () => {
   // const markdown = useAppSelector(state => state.addSnippet.documentation)
@@ -9,6 +12,26 @@ export const ViewSnippet = () => {
 
   const markdown = ``
   const code = ``
+
+  const [copied, setCopied] = useState(false)
+  let timerId: number = -1
+
+  useEffect(() => {
+    return () => {
+      console.log('SnippetCard unmounted')
+      if (timerId !== -1) clearTimeout(timerId)
+    }
+  }, [])
+
+  const copyCode = () => {
+    // copy code
+    navigator.clipboard.writeText(code)
+    setCopied(true)
+
+    timerId = setTimeout(() => {
+      setCopied(false)
+    }, 1000)
+  }
 
   return (
     <div className="flex justify-center">
@@ -26,7 +49,15 @@ export const ViewSnippet = () => {
         <div className="mdx">
           <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />
         </div>
-        <div className="pt-10">
+        <div className="pt-10 flex justify-end">
+          <button
+            className="bg-blue-500 p-3 rounded-md text-white text-xl"
+            onClick={copyCode}
+          >
+            {copied ? <GoThumbsup /> : <IoCopyOutline />}
+          </button>
+        </div>
+        <div className="pt-3">
           <Editor
             height="300px"
             defaultLanguage="javascript"
