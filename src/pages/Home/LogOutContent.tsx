@@ -1,6 +1,17 @@
 import { VscBracketDot } from 'react-icons/vsc'
 
 export const LogOutContent = () => {
+  const GITHUB_CLIENT_ID = import.meta.env.VITE_CLIENT_ID
+  const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI
+  const PATH = import.meta.env.VITE_PATH
+
+  const URI = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${REDIRECT_URI}?path=${PATH}&scope=user:email`
+
+  const githubLogIn = () => {
+    console.log(URI)
+    window.location.href = URI
+  }
+
   return (
     <main
       className="py-5 px-2 mt-10 md:mt-16 h-full w-full 
@@ -21,8 +32,8 @@ export const LogOutContent = () => {
         industry.
       </p>
       <button
-        className="mt-10 md:mt-16 bg-green-500 w-60 h-16 md:w-80 md:h-20 
-            rounded-full text-2xl font-semibold"
+        className="mt-10 md:mt-16 bg-green-500 w-60 h-16 md:w-80 md:h-20 rounded-full text-2xl font-semibold"
+        onClick={githubLogIn}
       >
         Get Started
       </button>
