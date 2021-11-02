@@ -4,6 +4,7 @@ import allSnippetReducer from '../features/allSnippetSlice'
 import pinnedReducer from '../features/pinnedSnippetSlice'
 import searchReducer from '../features/searchSlice'
 import singleSnippetReducer from '../features/singleSnippetSlice'
+import userReducer from '../features/userSlice'
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     addSnippet: addSnippetReducer,
     allSnippet: allSnippetReducer,
     singleSnippet: singleSnippetReducer,
+    user: userReducer,
   },
 })
 
