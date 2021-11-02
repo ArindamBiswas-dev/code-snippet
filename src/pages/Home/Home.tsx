@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useAppSelector } from '../../app/hook'
 import { LogInContent } from './LogInContent'
 import { LogOutContent } from './LogOutContent'
 
 export const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const userId = useAppSelector(state => state.user.id)
 
-  return <div>{isLoggedIn ? <LogInContent /> : <LogOutContent />}</div>
+  return <div>{userId ? <LogInContent /> : <LogOutContent />}</div>
 }

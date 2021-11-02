@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { VscBracketDot, VscClose, VscMenu } from 'react-icons/vsc'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../app/hook'
 
-type NavbarProps = {
-  isLoggedIn?: boolean
-}
-
-export const Navbar = ({ isLoggedIn = true }: NavbarProps) => {
+export const Navbar = () => {
+  const userId = useAppSelector(state => state.user.id)
   const [show, setShow] = useState(false)
 
   return (
@@ -18,7 +16,7 @@ export const Navbar = ({ isLoggedIn = true }: NavbarProps) => {
         </div>
       </Link>
       <ul className="ml-auto gap-5 hidden md:flex text-lg">
-        {isLoggedIn ? (
+        {userId ? (
           <>
             <li
               className="px-4 py-2 rounded-md hover:bg-gray-700 
