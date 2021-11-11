@@ -14,6 +14,7 @@ const userSate = createSlice({
   reducers: {
     setUserId(state, action: PayloadAction<string>) {
       // set the user id
+      console.log('userEmail', action)
       state.id = action.payload
     },
   },
